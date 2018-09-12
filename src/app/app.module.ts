@@ -8,18 +8,22 @@ import {routing} from './app.routing';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {RegistroService} from "./service/registro.service";
+import { AddRegistroComponent } from './add-registro/add-registro.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListRegistroComponent
+    ListRegistroComponent,
+    AddRegistroComponent
   ],
   imports: [
     BrowserModule,
     routing,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [RegistroService],
   bootstrap: [AppComponent]
