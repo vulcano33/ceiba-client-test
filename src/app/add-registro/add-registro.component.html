@@ -2,9 +2,8 @@
   <h3>Ceiba Parqueadero</h3>
   <div class="row">
     <div class="col-12">
-      <h4>Ingresar vehículo</h4>
+      <h4>Registro de entrada de vehículo</h4>
       <form (ngSubmit)="onSubmit()">
-  
         <div class="form-group">
             <label for="tipoVehiculo">Tipo de vehículo</label>
             <select class="form-control" id="tipoVehiculo">
@@ -21,8 +20,7 @@
           <label for="cilindrajeCC">Cilindraje (CC)</label>
           <input type="number" class="form-control" id="cilindrajeCC" [(ngModel)]="registro.cilindrajeCC" [ngModelOptions]="{standalone: true}">
         </div>
-        &nbsp;&nbsp;
-        <button type="submit" class="btn btn-success">Ingresar</button>
+        <button type="submit">Ingresar</button>
       </form>
     </div>
   </div>
@@ -35,7 +33,7 @@
         <th>Tipo de vehiculo</th>
         <th>Placa</th>
         <th>Cilindraje (CC)</th>
-        <th>Fecha entrada</th>
+        <th>Fecha de entrada</th>
         <th>Opciones</th>
       </tr>
       </thead>
@@ -51,4 +49,9 @@
       </tbody>
     </table>
     </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <app-registro-salida [registro]="registroSalida"></app-registro-salida>
+  </div>
 </div>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListRegistroComponent } from './list-registro.component';
+import { RegistroSalidaComponent } from './registro-salida.component';
 
-describe('ListRegistroComponent', () => {
-  let component: ListRegistroComponent;
-  let fixture: ComponentFixture<ListRegistroComponent>;
+describe('RegistroSalidaComponent', () => {
+  let component: RegistroSalidaComponent;
+  let fixture: ComponentFixture<RegistroSalidaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListRegistroComponent ]
+      declarations: [ RegistroSalidaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListRegistroComponent);
+    fixture = TestBed.createComponent(RegistroSalidaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -12,6 +12,7 @@ export class AddRegistroComponent implements OnInit {
 
   tiposVehiculo = ['Carro', 'Moto'];
   registro = new Registro("CARRO", null, null, null, null, null);
+  registroSalida: Registro;
   registros: Registro[];
 
   constructor(private router: Router, private registroService: RegistroService) { }
@@ -19,8 +20,13 @@ export class AddRegistroComponent implements OnInit {
   onSubmit() {
     this.registroService.createRegistro(this.registro)
     .subscribe((data: Registro) => {
-      this.registro = data;
       this.registros.push(data);
+    });
+  }
+
+  retirarRegistro(registro: Registro): void {
+    this.registroService.updateRegistro(registro).subscribe((data: Registro) => {
+      this.registroSalida = data;
     });
   }
 

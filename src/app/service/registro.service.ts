@@ -45,6 +45,6 @@ export class RegistroService {
   }
 
   updateRegistro(registro: Registro) {
-    return this.http.put<Registro>(this.baseUrl, registro);
+    return this.http.put<Registro>(this.baseUrl, registro, httpOptions);
   }
 }

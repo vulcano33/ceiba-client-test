@@ -1,0 +1,23 @@
+<div *ngIf="registro">
+    <h4> Registro de salida de vehículo</h4>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Tipo de vehiculo</th>
+        <th>Placa</th>
+        <th>Cilindraje (CC)</th>
+        <th>Fecha de entrada</th>
+        <th>Fecha de entrada</th>
+        <th>Valor a pagar</th>
+      </tr>
+      </thead>
+      <tbody>
+        <td>{{registro.tipoVehiculo}}</td>
+        <td>{{registro.placa}}</td>
+        <td>{{registro.cilindrajeCC}}</td>
+        <td>{{registro.fechaEntrada}}</td>
+        <td>{{registro.fechaSalida}}</td>
+        <td>{{registro.valorAPagar}}</td>
+      </tbody>
+    </table>
+</div>
