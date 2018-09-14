@@ -48,11 +48,8 @@ export class ListRegistroComponent implements OnInit {
   };
 
   retirarRegistro(registro: Registro): void {
-    console.log(">>>>>>>>>>>>> En retirar Vehiculo");
     this.registroService.updateRegistro(registro)
     .subscribe((data: Registro) => {
-      console.log(">>>> Data on update: " + JSON.stringify(data));
-      //let registro = {tipoVehiculo: data['tipoVehiculo'], placa: data['placa'], cilindrajeCC: data['cilindrajeCC'], fechaEntrada: data['fechaEntrada'], fechaSalida: data['fechaSalida'], valorAPagar: data['valorAPagar']};
       this.registroSalida = data;
     });
 
