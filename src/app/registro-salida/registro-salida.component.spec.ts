@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RegistroSalidaComponent } from './registro-salida.component';
 
 describe('RegistroSalidaComponent', () => {
@@ -19,7 +18,7 @@ describe('RegistroSalidaComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

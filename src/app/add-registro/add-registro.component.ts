@@ -14,13 +14,18 @@ export class AddRegistroComponent implements OnInit {
   registro = new Registro("CARRO", null, null, null, null, null);
   registroSalida: Registro;
   registros: Registro[];
+  registroCreado: boolean = false;
 
   constructor(private router: Router, private registroService: RegistroService) { }
 
   onSubmit() {
+    this.registroCreado = false;
     this.registroService.createRegistro(this.registro)
     .subscribe((data: Registro) => {
-      this.registros.push(data);
+      if (data != null) {
+        this.registroCreado = true;
+        this.registros.push(data);
+      }
     });
   }
 

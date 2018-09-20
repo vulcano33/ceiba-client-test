@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AddRegistroComponent } from './add-registro.component';
+import { FormsModule } from '@angular/forms';
 
 describe('AddRegistroComponent', () => {
   let component: AddRegistroComponent;
@@ -8,6 +8,7 @@ describe('AddRegistroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [ AddRegistroComponent ]
     })
     .compileComponents();
@@ -19,7 +20,7 @@ describe('AddRegistroComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -41,7 +41,7 @@ export class RegistroService {
     return this.http.post<Registro>(this.baseUrl, registro, httpOptions).pipe(
       tap((registro: Registro) => console.log(`added registro w/ id=${registro.placa}`)),
       catchError(this.handleError<Registro>('addRegistro'))
-    );;
+    );
   }
 
   updateRegistro(registro: Registro) {
