@@ -20,12 +20,12 @@ export class AddRegistroComponent implements OnInit {
   constructor(private router: Router, private registroService: RegistroService) { }
 
   onSubmit() {
-
     this.registroCreado = false;
     this.registroService.createRegistro(this.registro)
     .subscribe((data: Registro) => {
       if (data.placa != null) {
         this.registroCreado = true;
+        this.errorMsg = '';
         this.registros.push(data);
       }
     }, error => {
@@ -36,6 +36,8 @@ export class AddRegistroComponent implements OnInit {
   retirarRegistro(registro: Registro): void {
     this.registroService.updateRegistro(registro).subscribe((data: Registro) => {
       this.registroSalida = data;
+      this.errorMsg = '';
+      this.registros = this.registros.filter(reg => reg !== data);
     });
   }
 
