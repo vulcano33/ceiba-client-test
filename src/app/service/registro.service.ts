@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Registro} from "../model/registro.model";
-import {Observable, of} from 'rxjs';
+import {Registro} from '../model/registro.model';
+import {Observable, of, throwError} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable()
 export class RegistroService {
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8080/registros';
+  baseUrl = 'http://localhost:8080/registros';
 
   /**
    * Handle Http operation that failed.
@@ -29,7 +29,8 @@ export class RegistroService {
       console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
-      return of(result as T);
+      // return of(result as T);
+      return throwError(error.error.message || 'Server Error');
     };
   }
 
@@ -39,7 +40,7 @@ export class RegistroService {
 
   createRegistro(registro: Registro): Observable<Registro> {
     return this.http.post<Registro>(this.baseUrl, registro, httpOptions).pipe(
-      tap((registro: Registro) => console.log(`added registro w/ id=${registro.placa}`)),
+      tap((data: Registro) => console.log(`added registro w/ id=${data.placa} --> all data: ${data}`)),
       catchError(this.handleError<Registro>('addRegistro'))
     );
   }

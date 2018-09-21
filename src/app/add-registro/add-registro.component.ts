@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Registro} from '../model/registro.model';
-import {RegistroService} from "../service/registro.service";
-import {Router} from "@angular/router";
+import {RegistroService} from '../service/registro.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-registro',
@@ -11,10 +11,11 @@ import {Router} from "@angular/router";
 export class AddRegistroComponent implements OnInit {
 
   tiposVehiculo = ['Carro', 'Moto'];
-  registro = new Registro("CARRO", null, null, null, null, null);
+  registro = new Registro('CARRO', null, null, null, null, null);
   registroSalida: Registro;
   registros: Registro[];
-  registroCreado: boolean = false;
+  registroCreado = false;
+  errorMsg;
 
   constructor(private router: Router, private registroService: RegistroService) { }
 
@@ -22,10 +23,12 @@ export class AddRegistroComponent implements OnInit {
     this.registroCreado = false;
     this.registroService.createRegistro(this.registro)
     .subscribe((data: Registro) => {
-      if (data != null) {
+      if (data.placa != null) {
         this.registroCreado = true;
         this.registros.push(data);
       }
+    }, error => {
+      this.errorMsg = error;
     });
   }
 

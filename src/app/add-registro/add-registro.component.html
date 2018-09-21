@@ -4,6 +4,9 @@
   <div *ngIf="registroCreado" class="alert alert-warning fade show" role="alert">
     <strong>¡Felicitaciones!</strong> Se ha adicionado con éxito un registro al parqueadero
   </div>
+  <div *ngIf="errorMsg" class="alert alert-danger">
+    <strong>¡Error!</strong> {{errorMsg}}
+  </div>
   <div class="row">
     <div class="col-12">
       <h4>Registro de entrada de vehículo</h4>
@@ -14,12 +17,12 @@
                 <option *ngFor="let tipoVehiculo of tiposVehiculo" [value]="registro.tipoVehiculo">{{tipoVehiculo}}</option>
             </select>
         </div>
-  
+
         <div class="form-group">
           <label for="placa">Placa</label>
           <input type="text" class="form-control" id="placa" [(ngModel)]="registro.placa" [ngModelOptions]="{standalone: true}">
         </div>
-   
+
         <div class="form-group">
           <label for="cilindrajeCC">Cilindraje (CC)</label>
           <input type="number" class="form-control" id="cilindrajeCC" [(ngModel)]="registro.cilindrajeCC" [ngModelOptions]="{standalone: true}">

@@ -1,6 +1,6 @@
 import { RouterModule, Routes, Router} from '@angular/router';
-import {AddRegistroComponent} from "./add-registro/add-registro.component";
-import {RegistroSalidaComponent} from "./registro-salida/registro-salida.component";
+import {AddRegistroComponent} from './add-registro/add-registro.component';
+import {RegistroSalidaComponent} from './registro-salida/registro-salida.component';
 
 const routes: Routes = [
     {path: 'add-registro', component: AddRegistroComponent},
