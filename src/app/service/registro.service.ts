@@ -40,7 +40,7 @@ export class RegistroService {
 
   createRegistro(registro: Registro): Observable<Registro> {
     return this.http.post<Registro>(this.baseUrl, registro, httpOptions).pipe(
-      tap((data: Registro) => console.log(`added registro w/ id=${data.placa} --> all data: ${data}`)),
+      tap((data: Registro) => console.log(`added registro w/ id=${data.placa}`)),
       catchError(this.handleError<Registro>('addRegistro'))
     );
   }

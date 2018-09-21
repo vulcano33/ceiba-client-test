@@ -9,7 +9,7 @@ export class Registro {
     /**
      *
      */
-    constructor(tipoVehiculo :string, placa:string, cilindrajeCC:number, fechaEntrada:Date, fechaSalida:Date, valorAPagar:number) {
+    constructor(tipoVehiculo: string, placa: string, cilindrajeCC: number, fechaEntrada: Date, fechaSalida: Date, valorAPagar: number) {
         this.tipoVehiculo = tipoVehiculo;
         this.placa = placa;
         this.cilindrajeCC = cilindrajeCC;

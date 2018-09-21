@@ -13,8 +13,10 @@
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="tipoVehiculo">Tipo de vehículo</label>
-            <select class="form-control" id="tipoVehiculo">
-                <option *ngFor="let tipoVehiculo of tiposVehiculo" [value]="registro.tipoVehiculo">{{tipoVehiculo}}</option>
+            <select class="form-control" id="tipoVehiculo" name="tipoVehiculo" [(ngModel)]="registro.tipoVehiculo"
+            [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let tipoVehiculo of tiposVehiculo"
+                [value]="tipoVehiculo">{{tipoVehiculo}}</option>
             </select>
         </div>
 

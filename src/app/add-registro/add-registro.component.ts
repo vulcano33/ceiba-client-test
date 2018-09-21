@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class AddRegistroComponent implements OnInit {
 
   tiposVehiculo = ['Carro', 'Moto'];
-  registro = new Registro('CARRO', null, null, null, null, null);
+  registro = new Registro(this.tiposVehiculo[0], null, null, null, null, null);
   registroSalida: Registro;
   registros: Registro[];
   registroCreado = false;
@@ -20,6 +20,7 @@ export class AddRegistroComponent implements OnInit {
   constructor(private router: Router, private registroService: RegistroService) { }
 
   onSubmit() {
+
     this.registroCreado = false;
     this.registroService.createRegistro(this.registro)
     .subscribe((data: Registro) => {
