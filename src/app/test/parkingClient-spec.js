@@ -5,8 +5,16 @@ describe('Ceiba estacionamiento controller test', function() {
       element(by.id('placa')).sendKeys("QET443");
       element(by.id('cilindrajeCC')).sendKeys(1200);
 
-      element(by.id('ingresar')).click();
-      var todoList = element.all(by.id('tableRegistros'));
-      expect(todoList.count()).toEqual(1);
+      var alertElement = element(by.css('.alert-warning'));
+      element(by.id('ingresar')).click().then(function () {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(alertElement), 10000) //Wait for 10 seconds until alert is visible
+          .then(function () {
+            expect(alertElement.isDisplayed()).toBe(true);
+            //Other operations on alert
+            var registros = element.all(by.id('tableRegistros'));
+            expect(registros.count()).toEqual(1);
+          });
+      });
+
     });
   });
